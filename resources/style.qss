@@ -1,0 +1,237 @@
+/* ===================== GLOBAL ===================== */
+QWidget {
+    font-family: "Segoe UI";
+    color: #E6F1FF;
+    font-size: 13px;
+}
+
+#centralwidget {
+    background-color: transparent;
+}
+
+/* ===================== SIDEBAR ===================== */
+#sidebar {
+    background-color: rgba(4, 12, 26, 235);
+    border-right: 1px solid #123a5e;
+}
+
+#logoTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#logoSubtitle {
+    font-size: 11px;
+    color: #6FA8DC;
+}
+
+QPushButton[class="NavButton"] {
+    text-align: left;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #B9D3EC;
+    font-size: 13px;
+    font-weight: 500;
+}
+QPushButton[class="NavButton"]:hover {
+    background-color: rgba(30, 136, 229, 60);
+    color: #FFFFFF;
+}
+QPushButton[class="NavButton"]:checked {
+    background-color: #1E88E5;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#logoutButton {
+    text-align: left;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #FF8A80;
+    font-size: 13px;
+    font-weight: 500;
+}
+#logoutButton:hover {
+    background-color: rgba(229, 57, 53, 60);
+    color: #FFFFFF;
+}
+
+/* ===================== TOP BAR ===================== */
+#topBar {
+    background-color: rgba(8, 20, 40, 210);
+    border-bottom: 1px solid #123a5e;
+}
+
+#statsButton {
+    background-color: #0d2745;
+    border: 1px solid #1E88E5;
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#dateChip, #userChip {
+    background-color: #0d2745;
+    border: 1px solid #123a5e;
+    border-radius: 8px;
+    padding: 6px 14px;
+    color: #CFE6FF;
+}
+
+/* ===================== CARDS ===================== */
+QFrame[class="Card"] {
+    background-color: rgba(9, 24, 46, 220);
+    border: 1px solid #16406b;
+    border-radius: 12px;
+}
+
+QLabel[class="CardValue"] {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+QLabel[class="CardLabel"] {
+    font-size: 12px;
+    color: #9FC4EA;
+}
+
+QLabel[class="SectionTitle"] {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+QLabel[class="SectionSubtitle"] {
+    font-size: 12px;
+    color: #7FA8D0;
+}
+
+QLabel[class="IconBadge"] {
+    background-color: #1E88E5;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+/* ===================== INPUTS ===================== */
+QLineEdit, QComboBox {
+    background-color: #08203a;
+    border: 1px solid #1a4b78;
+    border-radius: 8px;
+    padding: 7px 10px;
+    color: #E6F1FF;
+}
+QLineEdit:focus, QComboBox:focus {
+    border: 1px solid #1E88E5;
+}
+QComboBox::drop-down { border: none; width: 24px; }
+
+#addProductButton {
+    background-color: #1E88E5;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+#addProductButton:hover { background-color: #2196F3; }
+
+#editDetailButton {
+    background-color: #1E88E5;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+#deleteDetailButton {
+    background-color: #E53935;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+QPushButton[class="PageNavButton"] {
+    background-color: #0d2745;
+    border: 1px solid #16406b;
+    border-radius: 6px;
+    color: #E6F1FF;
+}
+
+/* ===================== TABLE ===================== */
+QTableWidget {
+    background-color: rgba(7, 19, 37, 200);
+    alternate-background-color: rgba(12, 30, 55, 200);
+    gridline-color: #123a5e;
+    border: 1px solid #16406b;
+    border-radius: 10px;
+    selection-background-color: #1E88E5;
+    selection-color: #FFFFFF;
+}
+QHeaderView::section {
+    background-color: #0a1f3c;
+    color: #9FC4EA;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #16406b;
+    font-weight: bold;
+}
+QTableWidget::item { padding: 4px; }
+
+/* ===================== BADGES (aperçu, tableau vide donc non utilisés pour l'instant) ===================== */
+QLabel[class="BadgeBlue"]   { background-color: #1E88E5; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
+QLabel[class="BadgeGreen"]  { background-color: #2E7D32; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
+QLabel[class="BadgeOrange"] { background-color: #E68A00; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
+QLabel[class="BadgeRed"]    { background-color: #C62828; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
+
+/* ===================== GAUGE (réserve d'eau) ===================== */
+#reserveGauge {
+    border-radius: 36px;
+    border: 6px solid #1E88E5;
+    background-color: #08203a;
+    font-weight: bold;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+#reserveStateLabel { color: #4CAF50; font-weight: bold; }
+
+/* ===================== TABS (panneau de détail) ===================== */
+QTabWidget::pane {
+    border: 1px solid #16406b;
+    border-radius: 10px;
+    background-color: rgba(9, 24, 46, 220);
+    top: -1px;
+}
+QTabBar::tab {
+    background: transparent;
+    color: #9FC4EA;
+    padding: 8px 14px;
+    border: none;
+    font-weight: bold;
+}
+QTabBar::tab:selected {
+    color: #FFFFFF;
+    border-bottom: 2px solid #1E88E5;
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+}
+QScrollBar::handle:vertical {
+    background: #1a4b78;
+    border-radius: 5px;
+    min-height: 24px;
+}
+QScrollBar::handle:vertical:hover { background: #1E88E5; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; }
