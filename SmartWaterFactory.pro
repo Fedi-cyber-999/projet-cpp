@@ -8,13 +8,14 @@ TEMPLATE = app
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    stockpage.cpp \
+    placeholderpage.cpp
 
 HEADERS += \
-    mainwindow.h
-
-FORMS += \
-    mainwindow.ui
+    mainwindow.h \
+    stockpage.h \
+    placeholderpage.h
 
 RESOURCES += \
     resources.qrc

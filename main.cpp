@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     QApplication::setStyle("Fusion");
 
+    // Chargement de la feuille de style globale (thème bleu / cyan)
     QFile styleFile(":/styles/style.qss");
     if (styleFile.open(QFile::ReadOnly | QFile::Text)) {
         QTextStream stream(&styleFile);
@@ -17,8 +18,9 @@ int main(int argc, char *argv[])
     }
 
     MainWindow w;
-    w.resize(1680, 950);
-    w.setWindowTitle("AquaTech - Gestion intelligente de l'eau (aperçu graphique)");
+    w.resize(1820, 980);
+    w.setMinimumSize(1400, 800);
+    w.setWindowTitle("AquaTech - Gestion intelligente de l'eau");
     w.show();
     return a.exec();
 }

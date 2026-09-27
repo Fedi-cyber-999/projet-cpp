@@ -2,17 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QPixmap>
+#include <QStackedWidget>
 #include <QPushButton>
+#include <QVector>
+#include <QLabel>
+#include <QPixmap>
+#include <QVBoxLayout>
 
-namespace Ui {
-class MainWindow;
-}
-
-// Aucune logique métier ici, à une exception près : la sidebar permet
-// de basculer entre les pages (QStackedWidget). Toutes les pages autres
-// que "Stock" restent volontairement vides. Aucune autre action
-// (recherche, boutons, tableau...) n'est connectée.
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -25,14 +21,21 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private slots:
-    void onNavButtonClicked();
+    void onNavClicked();
+    void handleLogout();
 
 private:
-    void setupNavigation();
+    void setupSidebar(QWidget *parent);
+    void setupTopBar(QWidget *parent);
+    void setupPages();
+    QPushButton* addNavButton(QVBoxLayout *layout, const QString &text,
+                               const QString &iconChar, int pageIndex);
 
-    Ui::MainWindow *ui;
     QPixmap backgroundPixmap;
-    QList<QPushButton*> navButtons;
+
+    QWidget        *sidebar;
+    QStackedWidget *stackedWidget;
+    QVector<QPushButton*> sidebarButtons;
 };
 
 #endif // MAINWINDOW_H

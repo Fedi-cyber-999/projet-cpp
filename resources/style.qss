@@ -5,48 +5,53 @@ QWidget {
     font-size: 13px;
 }
 
-#centralwidget {
+#CentralBg {
+    /* Transparent : laisse voir l'image de fond dessinée par MainWindow::paintEvent.
+       Une couleur opaque ici recouvrirait complètement le fond derrière la sidebar,
+       la top bar et les cartes (qui, elles, utilisent des rgba semi-transparents). */
     background-color: transparent;
 }
 
 /* ===================== SIDEBAR ===================== */
-#sidebar {
-    background-color: rgba(4, 12, 26, 235);
-    border-right: 1px solid #123a5e;
+#Sidebar {
+    background-color: rgba(4, 12, 26, 110);
+    border-right: 1px solid rgba(18, 58, 94, 180);
 }
 
-#logoTitle {
+#LogoTitle {
     font-size: 20px;
     font-weight: bold;
     color: #FFFFFF;
 }
 
-#logoSubtitle {
-    font-size: 11px;
+#LogoSubtitle {
+    font-size: 10px;
     color: #6FA8DC;
 }
 
-QPushButton[class="NavButton"] {
+QPushButton#NavButton {
     text-align: left;
-    padding: 10px 14px;
+    padding: 9px 12px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: transparent;
     color: #B9D3EC;
     font-size: 13px;
     font-weight: 500;
 }
-QPushButton[class="NavButton"]:hover {
-    background-color: rgba(30, 136, 229, 60);
+
+QPushButton#NavButton:hover {
+    background-color: rgba(0, 136, 255, 60);
     color: #FFFFFF;
 }
-QPushButton[class="NavButton"]:checked {
-    background-color: #1E88E5;
+
+QPushButton#NavButton:checked {
+    background-color: #0088FF;
     color: #FFFFFF;
     font-weight: bold;
 }
 
-#logoutButton {
+QPushButton#LogoutButton {
     text-align: left;
     padding: 10px 14px;
     border: none;
@@ -56,18 +61,18 @@ QPushButton[class="NavButton"]:checked {
     font-size: 13px;
     font-weight: 500;
 }
-#logoutButton:hover {
+QPushButton#LogoutButton:hover {
     background-color: rgba(229, 57, 53, 60);
     color: #FFFFFF;
 }
 
 /* ===================== TOP BAR ===================== */
-#topBar {
+#TopBar {
     background-color: rgba(8, 20, 40, 210);
     border-bottom: 1px solid #123a5e;
 }
 
-#statsButton {
+#StatsButton {
     background-color: #0d2745;
     border: 1px solid #1E88E5;
     border-radius: 8px;
@@ -76,7 +81,7 @@ QPushButton[class="NavButton"]:checked {
     font-weight: bold;
 }
 
-#dateChip, #userChip {
+#DateChip, #UserChip {
     background-color: #0d2745;
     border: 1px solid #123a5e;
     border-radius: 8px;
@@ -85,39 +90,32 @@ QPushButton[class="NavButton"]:checked {
 }
 
 /* ===================== CARDS ===================== */
-QFrame[class="Card"] {
+QFrame.Card {
     background-color: rgba(9, 24, 46, 220);
     border: 1px solid #16406b;
     border-radius: 12px;
 }
 
-QLabel[class="CardValue"] {
+QLabel.CardValue {
     font-size: 22px;
     font-weight: bold;
     color: #FFFFFF;
 }
 
-QLabel[class="CardLabel"] {
+QLabel.CardLabel {
     font-size: 12px;
     color: #9FC4EA;
 }
 
-QLabel[class="SectionTitle"] {
+QLabel.SectionTitle {
     font-size: 18px;
     font-weight: bold;
     color: #FFFFFF;
 }
 
-QLabel[class="SectionSubtitle"] {
+QLabel.SectionSubtitle {
     font-size: 12px;
     color: #7FA8D0;
-}
-
-QLabel[class="IconBadge"] {
-    background-color: #1E88E5;
-    border-radius: 10px;
-    font-size: 18px;
-    color: white;
 }
 
 /* ===================== INPUTS ===================== */
@@ -133,78 +131,82 @@ QLineEdit:focus, QComboBox:focus {
 }
 QComboBox::drop-down { border: none; width: 24px; }
 
-#addProductButton {
-    background-color: #1E88E5;
+QPushButton#PrimaryButton {
+    background-color: #007AFF;
     border: none;
     border-radius: 8px;
-    padding: 9px 16px;
+    padding: 8px 16px;
     color: #FFFFFF;
     font-weight: bold;
+    font-size: 12.5px;
 }
-#addProductButton:hover { background-color: #2196F3; }
+QPushButton#PrimaryButton:hover { background-color: #3395FF; }
 
-#editDetailButton {
-    background-color: #1E88E5;
+QPushButton#DangerButton {
+    background-color: #EA3943;
     border: none;
     border-radius: 8px;
-    padding: 9px 16px;
+    padding: 8px 16px;
     color: #FFFFFF;
     font-weight: bold;
+    font-size: 12.5px;
 }
-#deleteDetailButton {
-    background-color: #E53935;
-    border: none;
-    border-radius: 8px;
-    padding: 9px 16px;
-    color: #FFFFFF;
-    font-weight: bold;
-}
+QPushButton#DangerButton:hover { background-color: #FF5B65; }
 
-QPushButton[class="PageNavButton"] {
-    background-color: #0d2745;
-    border: 1px solid #16406b;
-    border-radius: 6px;
-    color: #E6F1FF;
+QPushButton#IconEditButton, QPushButton#IconDeleteButton {
+    border: none;
+    border-radius: 12px;
+    padding: 0px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 12px;
+    min-width: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    max-height: 24px;
 }
+QPushButton#IconEditButton { background-color: #007AFF; }
+QPushButton#IconEditButton:hover { background-color: #3395FF; }
+
+QPushButton#IconDeleteButton { background-color: #FF3B30; }
+QPushButton#IconDeleteButton:hover { background-color: #FF6259; }
 
 /* ===================== TABLE ===================== */
-QTableWidget {
+QTableWidget#StockTable {
     background-color: rgba(7, 19, 37, 200);
     alternate-background-color: rgba(12, 30, 55, 200);
     gridline-color: #123a5e;
     border: 1px solid #16406b;
     border-radius: 10px;
-    selection-background-color: #1E88E5;
+    selection-background-color: #007AFF;
     selection-color: #FFFFFF;
+    font-size: 10px;
 }
-QHeaderView::section {
+QTableWidget#StockTable QHeaderView::section {
     background-color: #0a1f3c;
     color: #9FC4EA;
-    padding: 8px;
+    padding: 4px 4px;
     border: none;
     border-bottom: 1px solid #16406b;
     font-weight: bold;
+    font-size: 9.5px;
 }
-QTableWidget::item { padding: 4px; }
+QTableWidget#StockTable::item { padding: 1px 4px; }
 
-/* ===================== BADGES (aperçu, tableau vide donc non utilisés pour l'instant) ===================== */
-QLabel[class="BadgeBlue"]   { background-color: #1E88E5; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
-QLabel[class="BadgeGreen"]  { background-color: #2E7D32; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
-QLabel[class="BadgeOrange"] { background-color: #E68A00; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
-QLabel[class="BadgeRed"]    { background-color: #C62828; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
+/* ===================== BADGES ===================== */
+/* Badges "normaux" : utilisés dans le panneau de détail (plus grands) */
+QLabel.BadgeBlue   { background-color: #007AFF; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
+QLabel.BadgeGreen  { background-color: #00A86B; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
+QLabel.BadgeOrange { background-color: #D97706; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
+QLabel.BadgeRed    { background-color: #FF3B30; color: white; border-radius: 8px; padding: 3px 10px; font-weight: bold; font-size: 11px; }
 
-/* ===================== GAUGE (réserve d'eau) ===================== */
-#reserveGauge {
-    border-radius: 36px;
-    border: 6px solid #1E88E5;
-    background-color: #08203a;
-    font-weight: bold;
-    font-size: 15px;
-    color: #FFFFFF;
-}
-#reserveStateLabel { color: #4CAF50; font-weight: bold; }
+/* Badges compacts : utilisés dans les cellules du tableau */
+QLabel.BadgeBlueSm   { background-color: #007AFF; color: white; border-radius: 6px; padding: 3px 8px; font-weight: bold; font-size: 10px; }
+QLabel.BadgeGreenSm  { background-color: #00A86B; color: white; border-radius: 6px; padding: 3px 8px; font-weight: bold; font-size: 10px; }
+QLabel.BadgeOrangeSm { background-color: #D97706; color: white; border-radius: 6px; padding: 3px 8px; font-weight: bold; font-size: 10px; }
+QLabel.BadgeRedSm    { background-color: #FF3B30; color: white; border-radius: 6px; padding: 3px 8px; font-weight: bold; font-size: 10px; }
 
-/* ===================== TABS (panneau de détail) ===================== */
+/* ===================== TABS (Details panel) ===================== */
 QTabWidget::pane {
     border: 1px solid #16406b;
     border-radius: 10px;
@@ -214,9 +216,11 @@ QTabWidget::pane {
 QTabBar::tab {
     background: transparent;
     color: #9FC4EA;
-    padding: 8px 14px;
+    padding: 4px 6px;
+    margin-right: 2px;
     border: none;
     font-weight: bold;
+    font-size: 10px;
 }
 QTabBar::tab:selected {
     color: #FFFFFF;
