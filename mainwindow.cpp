@@ -83,22 +83,21 @@ void MainWindow::setupSidebar(QWidget * /*parent*/)
     layout->setContentsMargins(12, 16, 12, 16);
     layout->setSpacing(4);
 
-    // Logo
-    auto *logoRow = new QHBoxLayout();
-    auto *logoIcon = new QLabel("💧");
-    logoIcon->setStyleSheet("font-size:24px;");
-    auto *logoTextCol = new QVBoxLayout();
-    logoTextCol->setSpacing(0);
-    auto *logoTitle = new QLabel("AquaTech");
-    logoTitle->setObjectName("LogoTitle");
-    auto *logoSubtitle = new QLabel("Gestion intelligente de l'eau");
-    logoSubtitle->setObjectName("LogoSubtitle");
-    logoSubtitle->setWordWrap(true);
-    logoTextCol->addWidget(logoTitle);
-    logoTextCol->addWidget(logoSubtitle);
-    logoRow->addWidget(logoIcon);
-    logoRow->addLayout(logoTextCol, 1);
-    layout->addLayout(logoRow);
+    // Logo (image AquaTech : icône + nom) centré en haut de la sidebar
+    auto *logoImage = new QLabel();
+    logoImage->setObjectName("LogoImage");
+    logoImage->setAlignment(Qt::AlignCenter);
+    {
+        QPixmap logoPix(":/images/logo.png");
+        const qreal dpr = devicePixelRatioF();
+        const int logoWidth = 140;   // taille du logo (sidebar = 210 px de large)
+        QPixmap scaledLogo = logoPix.scaledToWidth(int(logoWidth * dpr),
+                                                   Qt::SmoothTransformation);
+        scaledLogo.setDevicePixelRatio(dpr);
+        logoImage->setPixmap(scaledLogo);
+    }
+    layout->addWidget(logoImage, 0, Qt::AlignHCenter);
+
     layout->addSpacing(18);
 
     // Navigation : 7 éléments (sans doublon de Stock)
