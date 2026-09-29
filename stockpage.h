@@ -8,6 +8,7 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <QFrame>
+#include <QVariantMap>
 
 // Page complète du module "Stocks" : cartes de synthèse, réserve d'eau (Arduino),
 // tableau des produits et panneau de détail du produit sélectionné.
@@ -16,6 +17,10 @@ class StockPage : public QWidget
     Q_OBJECT
 public:
     explicit StockPage(QWidget *parent = nullptr);
+
+public slots:
+    // Fenêtre de statistiques sur les quantités en stock (bouton "Statistiques")
+    void showStockStatistics();
 
 private slots:
     void onRowSelected(int row, int column);
@@ -49,7 +54,12 @@ private:
                         const QString &prix, const QString &qte,
                         const QString &seuil, const QString &emplacement,
                         const QString &date, const QString &etat,
-                        const QString &iconHint);
+                        const QString &iconHint,
+                        const QString &imagePath = QString(),
+                        int scoreEco = 5, int scoreProd = 5, int scoreCond = 5);
+    QString badgeText(int row, int col) const;   // texte du badge dans une cellule
+    QVariantMap rowMeta(int row) const;          // image + scores du produit
+    void renumberRows();
 
     QTableWidget *table;
     QLineEdit    *searchEdit;
@@ -72,7 +82,8 @@ private:
     QLabel *detailScoreBadge;
     QLabel *lblId, *lblDesignation, *lblCategorie, *lblNom, *lblType,
            *lblVolume, *lblPrix, *lblQte, *lblSeuil, *lblEmplacement,
-           *lblDateReception, *lblDateMaj, *lblFournisseur, *lblResponsable;
+           *lblDateReception, *lblDateMaj, *lblFournisseur, *lblResponsable,
+           *lblEco, *lblEffProd, *lblCond, *lblScore;
 };
 
 #endif // STOCKPAGE_H

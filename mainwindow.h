@@ -9,6 +9,8 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 
+class StockPage;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -35,6 +37,9 @@ private:
 
     QWidget        *sidebar;
     QStackedWidget *stackedWidget;
+    QPushButton    *statsBtn  = nullptr;
+    QPushButton    *reportBtn = nullptr;
+    StockPage      *stockPage = nullptr;
     QVector<QPushButton*> sidebarButtons;
 };
 

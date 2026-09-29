@@ -72,13 +72,17 @@ QPushButton#LogoutButton:hover {
     border-bottom: 1px solid #123a5e;
 }
 
-#StatsButton {
+#StatsButton, #ReportButton {
     background-color: #0d2745;
     border: 1px solid #1E88E5;
     border-radius: 8px;
     padding: 8px 16px;
     color: #FFFFFF;
     font-weight: bold;
+}
+
+#StatsButton:hover, #ReportButton:hover {
+    background-color: #123a63;
 }
 
 #DateChip, #UserChip {

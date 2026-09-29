@@ -127,8 +127,13 @@ void MainWindow::setupTopBar(QWidget *parent)
     auto *h = new QHBoxLayout(topBar);
     h->setContentsMargins(16, 8, 16, 8);
 
-    auto *statsBtn = new QPushButton("📊  Statistiques");
+    statsBtn = new QPushButton("📊  Statistiques");
     statsBtn->setObjectName("StatsButton");
+
+    // Bouton "Rapport mensuel" : uniquement l'interface pour l'instant.
+    // (aucun signal connecté : le rapport et l'export PDF seront ajoutés plus tard)
+    reportBtn = new QPushButton("📄  Rapport mensuel");
+    reportBtn->setObjectName("ReportButton");
 
     auto *dateChip = new QLabel("📅  24/09/2026   14:32");
     dateChip->setObjectName("DateChip");
@@ -137,6 +142,7 @@ void MainWindow::setupTopBar(QWidget *parent)
     userChip->setObjectName("UserChip");
 
     h->addWidget(statsBtn);
+    h->addWidget(reportBtn);
     h->addStretch();
     h->addWidget(dateChip);
     h->addWidget(userChip);
@@ -149,7 +155,11 @@ void MainWindow::setupTopBar(QWidget *parent)
 void MainWindow::setupPages()
 {
     stackedWidget->addWidget(new PlaceholderPage("Accueil", "Tableau de bord général de l'usine"));
-    stackedWidget->addWidget(new StockPage());
+    stockPage = new StockPage();
+    stackedWidget->addWidget(stockPage);
+
+    // Le bouton "Statistiques" affiche les statistiques de quantité en stock
+    connect(statsBtn, &QPushButton::clicked, stockPage, &StockPage::showStockStatistics);
     stackedWidget->addWidget(new PlaceholderPage("Module Employé", "Gestion du personnel"));
     stackedWidget->addWidget(new PlaceholderPage("Module Véhicule", "Gestion de la flotte de véhicules"));
     stackedWidget->addWidget(new PlaceholderPage("Module Livraison", "Suivi des livraisons"));
